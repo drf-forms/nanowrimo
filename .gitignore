@@ -1,0 +1,9 @@
+*.pyc
+*.sw?
+__pycache__/
+static/
+db.sqlite3
+environ.py
+venv/
+*/.ropeproject/
+
