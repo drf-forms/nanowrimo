@@ -9,7 +9,7 @@ class Book(models.Model):
                                related_name='authors')
 
     def __str__(self):
-        if title is not None and title != '':
+        if self.title is not None and self.title != '':
             return self.title
         return 'Untitled book #{}'.format(self.id)
 
@@ -21,7 +21,7 @@ class Chapter(models.Model):
     summary = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        if title is not None and title != '':
+        if self.title is not None and self.title != '':
             return self.title
         return 'Chapter {}'.format(self.number)
 
@@ -64,7 +64,7 @@ class Scene(models.Model):
                                 related_name='scenes')
     place = models.ForeignKey(Place, on_delete=models.SET_NULL, null=True, blank=True,
                               related_name='scenes')
-    characters = models.ManyToManyField(Character, related_name='scenes')
+    characters = models.ManyToManyField(Character, related_name='scenes', blank=True)
 
     def __str__(self):
         if self.short_description is not None and self.short_description != '':
@@ -77,12 +77,12 @@ class Scene(models.Model):
 
 
 class InventoryExchange(models.Model):
-    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, related_name='exchanged')
+    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, related_name='exchanges')
     from_char = models.ForeignKey(Character, on_delete=models.SET_NULL, null=True, blank=True,
                                   related_name='given_props')
     to_char = models.ForeignKey(Character, on_delete=models.SET_NULL, null=True, blank=True,
                                 related_name='received_props')
-    prop = models.ForeignKey(Prop, on_delete=models.CASCADE, related_name='exchanged')
+    prop = models.ForeignKey(Prop, on_delete=models.CASCADE, related_name='exchanges')
     note = models.CharField(max_length=500, null=True, blank=True)
 
     def __str__(self):

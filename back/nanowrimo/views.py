@@ -20,6 +20,7 @@ from rest_framework import filters
 
 from django_filters.rest_framework import DjangoFilterBackend
 
+from .models import Book
 from .serializers import UserSerializer, LoginSerializer
 
 
@@ -98,3 +99,39 @@ def service_worker_view(request, filetype, buildhash):
 
 def root_files_view(request, filename):
     return serve(request, filename, EMBER_DIST_PATH)
+
+
+class BookViewset(ModelViewSet):
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+    def dispatch(self, request, *args, **kwargs):
+        print(args, kwargs)
+        rv = super(BookViewset, self).dispatch(request, *args, **kwargs)
+        try:
+            book = self.get_object()
+            request.session['current_book'] = book.id
+        except Exception:
+            pass
+        return rv
+
+
+class BookRelatedViewSet(ModelViewSet):
+
+    def _get_kwargs(self):
+        kwargs = {}
+        book_id = self.request.session.get('current_book', None)
+        if book_id is not None:
+            try:
+                kwargs['book'] = Book.objects.get(id=book_id)
+            except Exception:
+                pass
+        return kwargs
+
+    def perform_create(self, serializer):
+        print(self._get_kwargs, self.request.session.keys())
+        serializer.save(**self._get_kwargs())
+
+    def perform_update(self, serializer):
+        serializer.save(**self._get_kwargs())
+
