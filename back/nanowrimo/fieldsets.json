@@ -1,0 +1,322 @@
+{
+  "Book": [{
+    "name": "title"
+  }, {
+    "widget": "tabset",
+    "tabs": [{
+      "label": "Scenes",
+      "fields": [{
+        "name": "scenes",
+        "widget": "tomany-slide",
+        "fields": [{
+          "name": "short_description"
+        }, {
+          "name": "place",
+          "class": "col-md-6",
+          "extra": {
+            "allowAdd": true
+          }
+        }, {
+          "name": "timestamp",
+          "class": "col-md-3"
+        }, {
+          "name": "chapter",
+          "class": "col-md-3",
+          "extra": {
+            "allowAdd": true
+          }
+        }, {
+          "name": "summary",
+          "widget": "textarea"
+        }, {
+          "name": "characters",
+          "widget": "manytomany-select",
+          "extra": {
+            "allowAdd": true
+          }
+        }, {
+          "name": "exchanges",
+          "fields": [{
+            "name": "from_char",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "to_char",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "prop",
+            "extra": {
+              "allowAdd": true
+            }
+          }]
+        }, {
+          "name": "long_description",
+          "widget": "textarea",
+          "extra": {
+            "rows": 10
+          }
+        }]
+      }]
+    }, {
+      "label": "Characters",
+      "fields": [{
+        "name": "characters",
+        "widget": "tomany-slide",
+        "fields": [{
+          "name": "name"
+        }, {
+          "name": "scenes",
+          "widget": "manytomany-select",
+          "extra": {
+            "allowAdd": true
+          }
+        }, {
+          "name": "notes",
+          "widget": "textarea",
+          "extra": {
+            "rows": 10
+          }
+        }, {
+          "name": "received_props",
+          "fields": [{
+            "name": "scene"
+          }, {
+            "name": "from_char",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "prop",
+            "extra": {
+              "allowAdd": true
+            }
+          }]
+        }, {
+          "name": "given_props",
+          "fields": [{
+            "name": "scene"
+          }, {
+            "name": "to_char",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "prop",
+            "extra": {
+              "allowAdd": true
+            }
+          }]
+        }]
+      }]
+    }, {
+      "label": "Places",
+      "fields": [{
+        "name": "places",
+        "widget": "tomany-slide",
+        "fields": [{
+          "name": "name"
+        }, {
+          "name": "description",
+          "widget": "textarea",
+          "extra": {
+            "rows": 10
+          }
+        }, {
+          "name": "scenes",
+          "widget": "tomany-slide",
+          "fields": [{
+            "name": "short_description"
+          }, {
+            "name": "timestamp",
+            "class": "col-md-3"
+          }, {
+            "name": "chapter",
+            "class": "col-md-3",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "summary",
+            "widget": "textarea"
+          }, {
+            "name": "characters",
+            "widget": "manytomany-select",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "exchanges",
+            "fields": [{
+              "name": "from_char",
+              "extra": {
+                "allowAdd": true
+              }
+            }, {
+              "name": "to_char",
+              "extra": {
+                "allowAdd": true
+              }
+            }, {
+              "name": "prop",
+              "extra": {
+                "allowAdd": true
+              }
+            }]
+          }]
+        }]
+      }]
+    }, {
+      "label": "Props",
+      "fields": [{
+        "name": "props",
+        "widget": "tomany-slide",
+        "fields": [{
+          "name": "name"
+        }, {
+          "name": "descritpion",
+          "widget": "textarea",
+          "extra": {
+            "rows": 10
+          }
+        }, {
+          "name": "exchanges",
+          "widget": "tomany-slide",
+          "innerClass": "col-md-6",
+          "fields": [{
+            "name": "from_char",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "to_char",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "class": "col-xs-12",
+            "name": "scene",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "class": "col-xs-12",
+            "name": "note",
+            "widget": "textarea",
+            "extra": {
+              "rows": 10
+            }
+          }]
+        }]
+      }]
+    }, {
+      "label": "Chapters",
+      "fields": [{
+        "name": "chapters",
+        "widget": "tomany-slide",
+        "fields": [{
+          "class": "col-md-3",
+          "name": "number"
+        }, {
+          "class": "col-md-9",
+          "name": "title"
+        }, {
+          "name": "scenes",
+          "widget": "tomany-slide",
+          "fields": [{
+            "name": "short_description"
+          }, {
+            "name": "place",
+            "class": "col-md-6",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "timestamp",
+            "class": "col-md-3"
+          }, {
+            "name": "summary",
+            "widget": "textarea"
+          }, {
+            "name": "characters",
+            "widget": "manytomany-select",
+            "extra": {
+              "allowAdd": true
+            }
+          }, {
+            "name": "exchanges",
+            "fields": [{
+              "name": "from_char",
+              "extra": {
+                "allowAdd": true
+              }
+            }, {
+              "name": "to_char",
+              "extra": {
+                "allowAdd": true
+              }
+            }, {
+              "name": "prop",
+              "extra": {
+                "allowAdd": true
+              }
+            }]
+          }]
+        }]
+      }]
+    }, {
+      "label": "General",
+      "fields": [{
+        "name": "summary",
+        "widget": "textarea"
+      }]
+    }]
+  }],
+  "Place": [{
+    "name": "name"
+  }, {
+    "name": "description",
+    "widget": "textarea"
+  }],
+  "Chapter": [{
+    "class": "col-md-3",
+    "name": "number"
+  }, {
+    "class": "col-md-9",
+    "name": "title"
+  }, {
+    "name": "summary",
+    "widget": "textarea",
+    "extra": {
+      "rows": 10
+    }
+  }],
+  "Character": [{
+    "name": "name"
+  }, {
+    "name": "notes",
+    "widget": "textarea",
+    "extra": {
+      "rows": 10
+    }
+  }],
+  "Prop": [{
+    "name": "name"
+  }, {
+    "name": "description",
+    "widget": "textarea",
+    "extra": {
+      "rows": 10
+    }
+  }],
+  "Scene": [{
+    "name": "short_description"
+  }, {
+    "name": "timestamp"
+  }, {
+    "name": "summary",
+    "widget": "textarea"
+  }]
+}
