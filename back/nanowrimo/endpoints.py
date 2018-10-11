@@ -24,30 +24,35 @@ class BookRelatedEndpoint(Endpoint):
 @register
 class PlaceEndpoint(BookRelatedEndpoint):
     model = Place
+    search_fields = ('name', )
 
 
 @register
 class ChapterEndpoint(BookRelatedEndpoint):
     model = Chapter
+    search_fields = ('title', 'summary')
 
 
 @register
 class CharacterEndpoint(BookRelatedEndpoint):
     model = Character
+    search_fields = ('name', )
 
 
 @register
 class PropEndpoint(BookRelatedEndpoint):
     model = Prop
+    search_fields = ('name', )
 
 
 @register
 class SceneEndpoint(BookRelatedEndpoint):
     model = Scene
+    search_fields = ('short_description', 'summary', )
 
 
 @register
-class InventoryExchangeEndpoint(BookRelatedEndpoint):
+class InventoryExchangeEndpoint(Endpoint):
     model = InventoryExchange
 
 

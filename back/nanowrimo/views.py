@@ -128,6 +128,9 @@ class BookRelatedViewSet(ModelViewSet):
                 pass
         return kwargs
 
+    def get_queryset(self):
+        return super(BookRelatedViewSet, self).get_queryset().filter(**self._get_kwargs())
+
     def perform_create(self, serializer):
         print(self._get_kwargs, self.request.session.keys())
         serializer.save(**self._get_kwargs())

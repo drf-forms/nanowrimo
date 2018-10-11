@@ -13,6 +13,9 @@ class Book(models.Model):
             return self.title
         return 'Untitled book #{}'.format(self.id)
 
+    class Meta:
+        ordering = ('title', )
+
 
 class Chapter(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='chapters')
@@ -25,6 +28,9 @@ class Chapter(models.Model):
             return self.title
         return 'Chapter {}'.format(self.number)
 
+    class Meta:
+        ordering = ('number', )
+
 
 class Place(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='places')
@@ -33,6 +39,9 @@ class Place(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ('name', )
 
 
 class Prop(models.Model):
@@ -43,6 +52,9 @@ class Prop(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ('name', )
+
 
 class Character(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='characters')
@@ -51,6 +63,9 @@ class Character(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ('name', )
 
 
 class Scene(models.Model):
@@ -74,6 +89,9 @@ class Scene(models.Model):
             ', '.join([c.name for c in self.characters.all()]),
             self.timestamp
         )
+
+    class Meta:
+        ordering = ('short_description', )
 
 
 class InventoryExchange(models.Model):
