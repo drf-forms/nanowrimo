@@ -11,6 +11,8 @@
         "fields": [{
           "name": "short_description"
         }, {
+          "name": "image"
+        }, {
           "name": "place",
           "class": "col-md-6",
           "extra": {
@@ -130,6 +132,8 @@
           "fields": [{
             "name": "short_description"
           }, {
+            "name": "image"
+          }, {
             "name": "timestamp",
             "class": "col-md-3"
           }, {
@@ -227,6 +231,8 @@
           "widget": "tomany-slide",
           "fields": [{
             "name": "short_description"
+          }, {
+            "name": "image"
           }, {
             "name": "place",
             "class": "col-md-6",
