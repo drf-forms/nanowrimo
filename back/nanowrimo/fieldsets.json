@@ -11,19 +11,20 @@
         "fields": [{
           "name": "short_description"
         }, {
-          "name": "image"
+          "name": "image",
+          "class": "col-md-3"
         }, {
           "name": "place",
-          "class": "col-md-6",
+          "class": "col-md-9",
           "extra": {
             "allowAdd": true
           }
         }, {
           "name": "timestamp",
-          "class": "col-md-3"
+          "class": "col-md-9"
         }, {
           "name": "chapter",
-          "class": "col-md-3",
+          "class": "col-md-9",
           "extra": {
             "allowAdd": true
           }
