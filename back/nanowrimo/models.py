@@ -7,6 +7,7 @@ class Book(models.Model):
     summary = models.TextField(null=True, blank=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
                                related_name='authors')
+    cover = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         if self.title is not None and self.title != '':
@@ -80,6 +81,7 @@ class Scene(models.Model):
     place = models.ForeignKey(Place, on_delete=models.SET_NULL, null=True, blank=True,
                               related_name='scenes')
     characters = models.ManyToManyField(Character, related_name='scenes', blank=True)
+    image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         if self.short_description is not None and self.short_description != '':

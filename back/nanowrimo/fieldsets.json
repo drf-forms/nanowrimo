@@ -11,6 +11,8 @@
         "fields": [{
           "name": "short_description"
         }, {
+          "name": "image"
+        }, {
           "name": "place",
           "class": "col-md-6",
           "extra": {
@@ -130,6 +132,8 @@
           "fields": [{
             "name": "short_description"
           }, {
+            "name": "image"
+          }, {
             "name": "timestamp",
             "class": "col-md-3"
           }, {
@@ -228,6 +232,8 @@
           "fields": [{
             "name": "short_description"
           }, {
+            "name": "image"
+          }, {
             "name": "place",
             "class": "col-md-6",
             "extra": {
@@ -269,8 +275,19 @@
     }, {
       "label": "General",
       "fields": [{
+        "name": "cover",
+        "class": "col-lg-3 col-sm-6",
+        "horiClass": "col-md-3 col-sm-12",
+        "inputClass": "col-md-9 col-sm-12"
+      }, {
         "name": "summary",
-        "widget": "textarea"
+        "widget": "textarea",
+        "class": "col-lg-9 col-sm-6",
+        "horiClass": "col-md-3 col-sm-12",
+        "inputClass": "col-md-9 col-sm-12",
+        "extra": {
+          "rows": 15
+        }
       }]
     }]
   }],
